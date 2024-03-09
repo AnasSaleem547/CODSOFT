@@ -1,0 +1,49 @@
+from tabulate import tabulate
+
+list=[]
+
+def create():
+    name=input("Enter task name:")
+    due_date=input("Enter due date:")
+    #priority=input("Enter priority of the task:")
+    list.append({"Task":name,"Due_date":due_date})
+    
+def update():
+    name=input("Enter task name you want to remove: ")
+    removed=False
+    for task in list:
+        if task["Task"]==name:
+            list.remove(task)
+            removed=True
+    if removed==True:
+        print(name, "removed successfully")
+    else:
+        print("Task", name ,"does not exist")        
+        
+    
+def viewlist():
+    if list:
+        print(tabulate(list, headers="keys", tablefmt="grid"))
+    else:
+        print("Wohoo!! You have no pending tasks.")    
+    
+def menu():
+    print("_______TO-DO LIST_______")
+    choice = None
+    while choice!=4:
+        print("\n1. Add task\n2. Update List\n3. View List\n4. Exit\n")
+        choice=int(input("Enter your choice:"))
+        if choice not in [1,2,3,4]:
+            menu()
+        elif choice==1:
+            create()
+        elif choice==2:
+            update()
+        elif choice==3:
+            viewlist()
+        elif choice==4:
+            exit()
+            
+            
+menu()
+    
