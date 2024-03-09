@@ -1,0 +1,36 @@
+def add(x,y):
+    return x+y
+
+def subtraction(x,y):
+    return x-y
+
+def multiplication(x,y):
+    return x*y
+
+def division(x,y):
+    if y==0:
+        print("Cannot perform division by 0")
+        exit()
+    else:
+        return x/y
+
+print("_____Calculator_____")
+a=int(input("Enter first number: "))
+o=input("Enter operator: ")
+if o not in ['+','-','/','*']:
+    print("Invalid input")
+    exit()
+b=int(input("Enter second number: "))
+
+if o=='+':
+    print("Sum of",a,"and",b,"is: ",add(a,b))
+elif o=='-':
+    print("Subtraction of",a,"and",b,"is: ",subtraction(a,b))
+elif o=='*':
+    print("Multiplication of",a,"and",b,"is:",multiplication(a,b))
+elif o=='/':
+    print("division of",a,"and",b,"is: ",division(a,b))
+    
+else:
+    print("Invalid input")
+    exit()
