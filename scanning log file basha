@@ -1,0 +1,22 @@
+#!/bin/bash
+#Log File Analyser
+#Accept log file as input
+log_file="$1"
+#Count total number of requests
+total_requests=$(c-1 < "$log_file")
+#Determine number of unique IP addresses
+unique_ips=$(awk '{print $1}' "$log_file" | sort - wc-1)
+#Identify top 5 most frequent IP addresses
+top_ips=$(awk '{print $1}' "Slog_file" | sort | uniq - sort -nrhead -5) #Calculate total size of data transferred
+total_size=$(awk (sum += $10) END (print sum)' "$log_file")
+# Generate summary report
+echo "Log File Analysis Report" > analysis_report.txt echo "--‒‒‒
+➖➖➖➖➖➖" >> analysis_report.txt
+echo "Total Requests: Stotal_requests" >> analysis_report.txt echo "Unique IP Addresses: Sunique_ips" >> analysis_report.txt echo "Top 5 IP Addresses: " >> analysis_report.txt
+echo "Stop_ips" >> analysis_report.txt
+echo "Total Size of Data Transferred: Stotal_size bytes" >> analysis_report.txt echo "Report generated on: $(date)" >> analysis_report.txt
+Lab # 4:
+In-lab problems:
+1. Write a program that creates two child processes. One child process should print its process I (PID), and the other child process should print its parent process ID (PPID). The parent proce should wait for both child processes to terminate before ending. Hint: fork (), wait ()
+2. Create a program that creates a child process. The child process prints "I am a child process" times in a loop. Whereas the parent process prints "I am a parent process" 100 times in a loop
+3. Develop a program that prints the current process ID (PID) and the parent process ID (PPID) running process. Additionally, implement a function to retrieve and print the user ID (UID) o current user executing the program. Hint: getpid (), getppid ()
